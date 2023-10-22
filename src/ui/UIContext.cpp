@@ -11,8 +11,6 @@
 UIContext *UIContext::m_instance = nullptr;
 
 void UIContext::init(SDL_Window *window, SDL_GLContext gl_context, const char *glsl_version) {
-    m_instance = new UIContext();
-
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO &io = ImGui::GetIO();
@@ -41,11 +39,9 @@ void UIContext::preRender() {
 }
 
 void UIContext::render() {
-    ImGui::ShowDemoWindow();
-
-    // Rendering
     ImGui::Render();
-    glViewport(0, 0, (int) ImGui::GetIO().DisplaySize.x, (int) ImGui::GetIO().DisplaySize.y);
+    ImGuiIO &io = ImGui::GetIO();
+    glViewport(0, 0, (int) io.DisplaySize.x, (int) io.DisplaySize.y);
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 }

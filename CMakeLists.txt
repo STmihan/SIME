@@ -5,14 +5,21 @@ project(${PROJECT_NAME})
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(${PROJECT_NAME}
+        src/Entry.h
+
+        include/Sime.h
         main.cpp
-        test.cpp
+
         src/ui/UIContext.cpp
         src/ui/UIContext.h
         src/renderer/RenderContext.cpp
         src/renderer/RenderContext.h
-        src/app/Sandbox.h
+        src/app/Application.h
+        src/app/Application.cpp
 )
+
+include_directories(${PROJECT_NAME} src)
+include_directories(${PROJECT_NAME} include)
 
 # SDL2
 if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)

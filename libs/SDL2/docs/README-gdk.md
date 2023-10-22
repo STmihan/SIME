@@ -115,7 +115,7 @@ When debugging GDK games, there is no way to specify a working directory. Theref
 
 At this point, you should be able to build and run your game from the Visual Studio Debugger. If you get any linker errors, make sure you double-check that you referenced all the required libs.
 
-If you are testing Xbox Live functionality, it's likely you will need to change to the Sandbox for your title. To do this:
+If you are testing Xbox Live functionality, it's likely you will need to change to the Application for your title. To do this:
 
 1. Run "Desktop VS 2022 Gaming Command Prompt" from the Start Menu
 2. Switch the sandbox name with:

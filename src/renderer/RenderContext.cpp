@@ -56,9 +56,7 @@ void RenderContext::preRender(int width, int height) {
 }
 
 void RenderContext::render() {
-    const SDL_Rect rect = {0, 0, 200, 200};
-    SDL_SetRenderDrawColor(RenderContext::instance()->renderer(), 255, 0, 0, 255);
-    SDL_RenderFillRect(RenderContext::instance()->renderer(), &rect);
+
 }
 
 void RenderContext::postRender() {
