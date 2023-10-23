@@ -5,7 +5,7 @@
 #ifndef SIME_UICONTEXT_H
 #define SIME_UICONTEXT_H
 
-#include "SDL2/SDL.h"
+#include "SDL.h"
 
 class UIContext {
 public:

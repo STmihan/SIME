@@ -7,6 +7,9 @@
 
 // For use by Sime applications
 
+#include "SDL.h"
+#include "imgui.h"
+
 #include "Entry.h"
 
 #include "app/Application.h"

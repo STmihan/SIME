@@ -7,9 +7,10 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
 
-set(SOURCES src/Entry.h
-
+set(SOURCES
         include/Sime.h
+
+        src/Entry.h
         main.cpp
 
         src/ui/UIContext.cpp
@@ -25,7 +26,7 @@ include_directories(${EXE_TARGET_NAME} src)
 include_directories(${EXE_TARGET_NAME} include)
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES})
-include_directories(${PROJECT_NAME} include)
+include_directories(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # SDL2
 if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)
@@ -47,4 +48,5 @@ add_subdirectory(libs/glad)
 target_link_libraries(${PROJECT_NAME} glad)
 target_link_libraries(${EXE_TARGET_NAME} glad)
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)

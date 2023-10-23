@@ -5,7 +5,7 @@
 #ifndef SIME_APPLICATION_H
 #define SIME_APPLICATION_H
 
-#include "SDL2/SDL.h"
+#include "SDL.h"
 #include "imgui.h"
 
 namespace Sime {
