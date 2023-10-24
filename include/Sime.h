@@ -11,6 +11,7 @@
 #include "imgui.h"
 
 #include "Entry.h"
+#include "types.h"
 
 #include "app/Application.h"
 #include "ui/UIContext.h"
