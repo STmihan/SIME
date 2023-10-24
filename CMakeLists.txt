@@ -5,7 +5,9 @@ project(${PROJECT_NAME})
 
 set(CMAKE_CXX_STANDARD 17)
 
+if (MINGW)
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
+endif ()
 
 set(SOURCES
         include/Sime.h
@@ -28,10 +30,11 @@ add_library(${PROJECT_NAME} STATIC ${SOURCES})
 include_directories(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # SDL2
-if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)
-    set(SDL2_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/SDL2/x86_64-w64-mingw32/lib/cmake/SDL2")
-else ()
-    set(SDL2_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/SDL2/i686-w64-mingw32/lib/cmake/SDL2")
+if (MSVC)
+    set(SDL2_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/SDL2-VC/cmake")
+endif (MSVC)
+if (MINGW)
+    set(SDL2_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/SDL2-MinGW/cmake")
 endif ()
 
 find_package(SDL2 REQUIRED)
