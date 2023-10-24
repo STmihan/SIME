@@ -3,7 +3,7 @@ set(PROJECT_NAME SIME)
 set(EXE_TARGET_NAME ${PROJECT_NAME}_EXE)
 project(${PROJECT_NAME})
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static")
 
