@@ -1,11 +1,17 @@
 #include "Sime.h"
 
+
 class Sandbox : public Sime::Application {
 public:
     Sandbox() = default;
     ~Sandbox() override = default;
 
 protected:
+
+    void init() override {
+
+    }
+
     void processEvents(const SDL_Event *event) override {
 
     }

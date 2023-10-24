@@ -15,10 +15,11 @@ namespace Sime {
         Application() = default;
         virtual ~Application() = default;
 
-        void run();
+        void run(int width, int height, const char *title);
         void close() { m_exit = true; }
 
     protected:
+        virtual void init() = 0;
         virtual void processEvents(const SDL_Event *event) = 0;
         virtual void draw(SDL_Renderer* renderer) = 0;
         virtual void drawUI(ImGuiIO& io) = 0;

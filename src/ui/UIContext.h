@@ -20,6 +20,7 @@ public:
 private:
     UIContext() = default;
     static UIContext* m_instance;
+    void renderDockSpace();
 };
 
 

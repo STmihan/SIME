@@ -10,9 +10,9 @@
 
 
 namespace Sime {
-    void Application::run() {
+    void Application::run(int width, int height, const char *title) {
         RenderContext::create();
-        RenderContext::instance()->init();
+        RenderContext::instance()->init(width, height, title);
 
         UIContext::create();
         UIContext::instance()->init(
@@ -21,7 +21,7 @@ namespace Sime {
                 GLSL_VERSION
         );
 
-
+        init();
         while (!shouldClose()) {
             SDL_Event event;
             while (SDL_PollEvent(&event)) {

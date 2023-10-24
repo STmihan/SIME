@@ -9,15 +9,6 @@
 #include "glad/glad.h"
 
 #define GLSL_VERSION "#version 130"
-#ifndef WINDOW_TITLE
-#define WINDOW_TITLE "Sime"
-#endif
-#ifndef WINDOW_WIDTH
-#define WINDOW_WIDTH 1280
-#endif
-#ifndef WINDOW_HEIGHT
-#define WINDOW_HEIGHT 720
-#endif
 
 class RenderContext {
 public:
@@ -26,7 +17,7 @@ public:
 
     static void create() { m_instance = new RenderContext(); }
 
-    int init();
+    int init(int width, int height, const char *title);
 
     void preRender(int width, int height);
 
@@ -47,7 +38,7 @@ private:
     RenderContext() = default;
 
     static RenderContext *m_instance;
-
+    int m_width, m_height;
 
     SDL_Window *m_window;
     SDL_Renderer *m_renderer;

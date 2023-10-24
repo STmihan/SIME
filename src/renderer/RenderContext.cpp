@@ -7,7 +7,9 @@
 
 RenderContext *RenderContext::m_instance = nullptr;
 
-int RenderContext::init() {
+int RenderContext::init(int width, int height, const char *title) {
+    m_width = width;
+    m_height = height;
     SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
 
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0) {
@@ -27,13 +29,12 @@ int RenderContext::init() {
     SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
 
-
     m_window = SDL_CreateWindow(
-            WINDOW_TITLE,
+            title,
             SDL_WINDOWPOS_CENTERED,
             SDL_WINDOWPOS_CENTERED,
-            WINDOW_WIDTH,
-            WINDOW_HEIGHT,
+            width,
+            height,
             SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
 
     m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
@@ -56,7 +57,6 @@ void RenderContext::preRender(int width, int height) {
 }
 
 void RenderContext::render() {
-
 }
 
 void RenderContext::postRender() {

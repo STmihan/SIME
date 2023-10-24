@@ -7,8 +7,8 @@
 #include "app/Application.h"
 
 namespace Sime {
-    int entryPoint(Sime::Application *sandbox) {
-        sandbox->run();
+    int entryPoint(Sime::Application *sandbox, int width, int height, const char *title) {
+        sandbox->run(width, height, title);
         delete sandbox;
         return 0;
     }

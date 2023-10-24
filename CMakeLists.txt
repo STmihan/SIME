@@ -11,7 +11,6 @@ set(SOURCES
         include/Sime.h
 
         src/Entry.h
-        main.cpp
 
         src/ui/UIContext.cpp
         src/ui/UIContext.h
@@ -21,11 +20,12 @@ set(SOURCES
         src/app/Application.cpp
 )
 
-add_executable(${EXE_TARGET_NAME} ${SOURCES})
+add_executable(${EXE_TARGET_NAME} main.cpp ${SOURCES})
 include_directories(${EXE_TARGET_NAME} src)
 include_directories(${EXE_TARGET_NAME} include)
 
-add_library(${PROJECT_NAME} STATIC ${SOURCES})
+add_library(${PROJECT_NAME} STATIC ${SOURCES}
+        src/ui/docking.h)
 include_directories(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # SDL2
@@ -50,3 +50,4 @@ target_link_libraries(${EXE_TARGET_NAME} glad)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
